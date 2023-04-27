@@ -1,1 +1,139 @@
-/* You can add global styles to this file, and also import other style files */
+@use "@angular/material" as mat;
+@include mat.core();
+
+$primary-palette: (
+  100: #0d6efd,
+  500: #0d6efd,
+  700: #0d6efd,
+  900: #0d6efd,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: white,
+  ),
+);
+
+$accent-palette: (
+  100: #6c757d,
+  500: #6c757d,
+  700: #6c757d,
+  900: #6c757d,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: white,
+  ),
+);
+
+$warning-palette: (
+  100: #ffc107,
+  500: #ffc107,
+  700: #ffc107,
+  900: #ffc107,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: white,
+  ),
+);
+
+$app-primary: mat.define-palette($primary-palette);
+$app-accent: mat.define-palette($accent-palette);
+$app-warning: mat.define-palette($warning-palette);
+
+$app-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $app-primary,
+      accent: $app-accent,
+      warn: $app-warning,
+    ),
+  )
+);
+
+@include mat.all-component-themes($app-theme);
+
+:root {
+  --primary: #0d6efd;
+  --accent: #6c757d;
+  --info: #0dcaf0;
+  --success: #198754;
+  --warn: #ffc107;
+  --error: #dc3545;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: "Tajawal", sans-serif;
+}
+
+.btn {
+  @apply w-fit p-2 text-xl rounded-xl transition  focus:outline-none focus:ring-4;
+}
+
+.btn-primary {
+  @apply bg-primary hover:bg-accent text-white focus:ring-primary focus:ring-opacity-25;
+}
+
+.btn-info {
+  @apply bg-info hover:bg-accent text-white focus:ring-info focus:ring-opacity-25;
+}
+
+.btn-success {
+  @apply bg-success hover:bg-accent text-white focus:ring-success focus:ring-opacity-25;
+}
+
+.btn-error {
+  @apply bg-error hover:bg-accent text-white focus:ring-error focus:ring-opacity-25;
+}
+
+.btn-warn {
+  @apply bg-warn hover:bg-transparent text-white focus:ring-warn focus:ring-opacity-25;
+}
+
+.snackbar-info {
+  color: white;
+  --mdc-snackbar-container-color: var(--info);
+
+  .mat-simple-snackbar-action {
+    color: white;
+  }
+}
+
+.snackbar-success {
+  color: white;
+  --mdc-snackbar-container-color: var(--success);
+
+  .mat-simple-snackbar-action {
+    color: white;
+  }
+}
+
+.snackbar-warn {
+  color: white;
+  --mdc-snackbar-container-color: var(--warn);
+
+  .mat-simple-snackbar-action {
+    color: white;
+  }
+}
+
+.snackbar-error {
+  color: white;
+  --mdc-snackbar-container-color: var(--error);
+
+  .mat-simple-snackbar-action {
+    color: white;
+  }
+}

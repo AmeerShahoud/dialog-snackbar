@@ -1,0 +1,35 @@
+<h1
+  style="color: white; font-size: 2rem; margin: 0; padding: 10px"
+  [class]="
+    dialogData.type == 'info'
+      ? 'bg-info'
+      : dialogData.type == 'success'
+      ? 'bg-success'
+      : dialogData.type == 'warn'
+      ? 'bg-warn'
+      : 'bg-error'
+  "
+  mat-dialog-title
+>
+  <mat-icon>{{
+    dialogData.type == "info"
+      ? "info"
+      : dialogData.type == "success"
+      ? "check_circle"
+      : dialogData.type == "warn"
+      ? "warning"
+      : "highlight_off"
+  }}</mat-icon>
+  <span style="height: 2rem">
+    {{ dialogData.title ?? dialogData.type }}
+  </span>
+</h1>
+
+<div style="padding: 2rem" mat-dialog-content>
+  <p>{{ dialogData.body ?? "Default body" }}</p>
+</div>
+<div mat-dialog-actions>
+  <button (click)="dialog.close()" [class]="'btn btn-' + dialogData.type">
+    Ok
+  </button>
+</div>
