@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { TestComponent } from './test/test.component';
 import { DialogService } from './dialog/services/dialog/dialog.service';
 import { SnackbarService } from './snackbar/services/snackbar/snackbar.service';
 
